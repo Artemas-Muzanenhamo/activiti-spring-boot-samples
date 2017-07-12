@@ -4,9 +4,9 @@
 
 
     <parent>
-        <groupId>com.activiti</groupId>
+        <groupId>org.activiti</groupId>
         <artifactId>activiti-spring-boot</artifactId>
-		<version>5.21.0.3</version>
+		<version>6.0.0</version>
     </parent>
 
     <artifactId>activiti-spring-boot-samples</artifactId>
@@ -25,12 +25,19 @@
     <dependencies>
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy</artifactId>
-            <version>1.7.5</version>
+            <artifactId>groovy-all</artifactId>
+            <version>1.7.6</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.activiti/activiti-spring-boot -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot</artifactId>
+            <version>6.0.0</version>
+            <type>pom</type>
         </dependency>
     </dependencies>
     

@@ -2,7 +2,7 @@ package activiti;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.RuntimeService;
-import org.activiti.engine.impl.pvm.delegate.ActivityExecution;
+import org.activiti.engine.impl.delegate.ActivityBehaviorInvocation; //import org.activiti.engine.impl.pvm.delegate.ActivityExecution;
 import org.activiti.spring.integration.ActivitiInboundGateway;
 import org.activiti.spring.integration.IntegrationActivityBehavior;
 import org.springframework.boot.CommandLineRunner;
@@ -58,9 +58,9 @@ public class Application {
     IntegrationFlow inboundProcess(ActivitiInboundGateway inboundGateway) {
         return IntegrationFlows
                 .from(inboundGateway)
-                .handle(new GenericHandler<ActivityExecution>() {
+                .handle(new GenericHandler<ActivityBehaviorInvocation>() {
                     @Override
-                    public Object handle(ActivityExecution execution, Map<String, Object> headers) {
+                    public Object handle(ActivityBehaviorInvocation execution, Map<String, Object> headers) {
                         return MessageBuilder.withPayload(execution)
                                 .setHeader("projectId", "3243549")
                                 .copyHeaders(headers).build();
